@@ -21,3 +21,14 @@ html, body {
 
 	padding:1rem;
 }
+
+span {
+	display: inline-block;
+}
+
+.important {
+	border-radius: 0.5rem;
+	border:solid 2px rgb(255, 217, 0);
+	color: black;
+	padding: 0.25rem;
+}

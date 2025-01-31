@@ -5,7 +5,7 @@
 	let { estimator_count = $bindable() } = $props()
 
 	$effect(() => {
-		estimator_count = Math.floor(1 / (Math.pow(expected_delta, 2) * (1-probability_correctness)));
+		estimator_count = Math.round(1 / (Math.pow(expected_delta, 2) * (1-probability_correctness)));
 	});
 
 </script>

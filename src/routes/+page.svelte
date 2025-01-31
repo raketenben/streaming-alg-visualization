@@ -3,6 +3,7 @@
 	import EstimatorCombined from "$lib/EstimatorCombined.svelte";
 
 	let estimators : EstimatorCombined;
+	let data_source : DataSource;
 
 	let accurate_f2 = $state(0);
 	let predicted_f2 = $state(0);
@@ -15,12 +16,27 @@
 <div class="layout">
 	<DataSource data={(value : number) => {
 		estimators.handle_data(value);
-	}} bind:prediction={accurate_f2} />
+	}} bind:prediction={accurate_f2} bind:this={data_source}/>
 
-	<EstimatorCombined bind:this={estimators} bind:prediction={predicted_f2} />
+	<EstimatorCombined bind:this={estimators} bind:prediction={predicted_f2} updated={() => {
+		data_source.clear_data();
+	}}/>
 	<div class="panel">
-		<span>Delta: {delta}</span>
-		<span>Percentale Error: {percentale_error.toFixed(2)}%</span>
+		<h1>F2 Vergleich</h1>
+		{#if accurate_f2}
+			<h2><span>Genauer Wert: <span class="important">{accurate_f2}</span></span></h2>
+		{/if}
+		{#if predicted_f2}
+			<h2><span>Geschätzter Wert: <span class="important">{predicted_f2}</span></span></h2>
+		{/if}
+		{#if delta}
+			<h2><span>Abweichung Absolute: <span class="important">{delta}</span></span></h2>
+		{/if}
+		{#if percentale_error}
+		<h2><span>Abweichung Prozentual: <span class="important">{percentale_error.toFixed(2)}%</span></span></h2>
+		{:else}
+			<span>-</span>
+		{/if}
 	</div>
 </div>
 

@@ -5,7 +5,7 @@
 
 	let canvas: HTMLCanvasElement;
 
-	let data_bound = $state(500000);
+	let data_bound = $state(250000);
 	let packets = $state(500000);
 
 	let estimator_count : number = $state(1);
@@ -69,15 +69,15 @@
 	});
 </script>
 <div class="layout">
-	<div class="panel">
+	<div class="panel pl">
 		<h2>Vergleich Platzkomplexität - F2 Algorithmus</h2> 
-		<div>
+		<div class="plot">
 			<canvas bind:this={canvas}></canvas>
 		</div>
 		
 		<div class="row">
 			<label for="packets">Pakettypen</label>
-			<input name="packets" type="range" min="1" max="100000000" step="1000" bind:value={data_bound} /><span>{data_bound}</span>
+			<input name="packets" type="range" min="1" max="1000000" step="1000" bind:value={data_bound} /><span>{data_bound}</span>
 		</div>
 		<details class="panel">
 			<summary>Schätzer Parameter</summary>
@@ -107,5 +107,11 @@
 		display: grid;
 		grid-template-columns: auto 1fr min-content;
 		grid-gap: 1rem;
+	}
+
+	.plot {
+		max-height: 70dvh;
+		display: flex;
+		justify-content: center;
 	}
 </style>

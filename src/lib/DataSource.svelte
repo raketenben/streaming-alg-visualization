@@ -29,7 +29,7 @@
 		return Math.floor(mixed);
 	}
 
-	function clear_data() {
+	export function clear_data() {
 		data_stream = [];
 		bins = new Array(100).fill(0);
 	}
@@ -184,7 +184,7 @@
 	</details>
 	<details>
 		<summary>Berechnete F2</summary>
-		<h2>{f2}</h2>
+		<h2><span>F2: <span class="important">{prediction}</span></span></h2>
 	</details>
 </div>
 

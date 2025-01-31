@@ -6,7 +6,7 @@
 
 	let amount = $state(1);
 
-	let { prediction = $bindable() } = $props();
+	let { updated, prediction = $bindable() } = $props();
 
 	//let amount = $state(800);
 	
@@ -15,18 +15,23 @@
 	let status = $state("");
 
 	async function update_estimators() {
-		status = `Initializing estimators`;
+		status = `Initalisiere ${amount} Schätzer...`;
 		await tick();
 		if(amount > predictors.length) {
 			for(let i = predictors.length; i < amount; i++) {
-				status = `Initializing estimator ${i} of ${amount}`;
-				await tick();
-				predictors.push(new Predictor());
+				let p = new Predictor();
+				await p .init()
+				predictors.push(p);
 			}
 		} else {
 			predictors = predictors.slice(0, amount);
 		}
-		status = "";
+		status = `Initialisierung von ${amount} Schätzern abgeschlossen.`;
+		//clear all counters
+		for(const p of predictors) {
+			p.clear();
+		}
+		updated();
 	}
 
 	export const handle_data = (value: number) => {
@@ -38,10 +43,40 @@
 	};
 </script>
 <div class="panel">
-	<h1>Schätzer</h1>
+	<h1>F2 Schätzer</h1>
 	<PredictorCount bind:estimator_count={amount} />
-	<input type="number" bind:value={amount} />
-	<button onclick={update_estimators}>Update</button>
-	<span>{status}</span>
-	<span>{prediction}</span>
+	<br />
+	<div class="panel">
+		<input type="number" bind:value={amount} />
+		<button onclick={update_estimators}>Update</button>
+		<br />
+		<div class="status">
+			<span>{status}</span>
+			<br>
+			{#if prediction}
+				<h2><span>Schätzung F2: <span class="important">{prediction}</span></span></h2>
+			{/if}
+		</div>
+	</div>
 </div>
+
+<style>
+	button {
+		padding: 0.5rem;
+		border-radius: 0.5rem;
+		border: none;
+		background-color: #007bff;
+		color: white;
+	}
+
+	input[type=number] {
+		padding: 0.5rem;
+		border-radius: 0.5rem;
+		border: 1px solid gray;
+	}
+
+	.status {
+		padding: 0.5rem;
+	}
+
+</style>

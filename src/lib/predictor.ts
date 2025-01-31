@@ -1,3 +1,5 @@
+import { getRandomPrime } from '$lib/primes';
+
 const get_random = () => {
 	let rnd = Math.random() * 0xFFFFFFFFFFFFFFFF;
 	rnd |= 8000000000000008;
@@ -21,23 +23,27 @@ const generate_prime = () => {
 
 
 class Predictor {
-	p3: number;
-	p2: number;
-	p1: number;
-	p0: number;
-	bp: number;
+	p3! : number;
+	p2! : number;
+	p1! : number;
+	p0! : number;
+	bp! : number;
 
 	counter = 0;
 
 	constructor() {
-		this.bp = generate_prime();
-
-		this.p3 = Math.round(Math.random() * this.bp);
-		this.p2 = Math.round(Math.random() * this.bp);
-		this.p1 = Math.round(Math.random() * this.bp);
-		this.p0 = Math.round(Math.random() * this.bp);
+		//this.bp = generate_prime();
 
 		//console.log("Prime: ", this.bp," Coefficients: ", this.p3, this.p2, this.p1, this.p0);
+	}
+
+	async init() {
+		this.bp = await getRandomPrime();
+
+		this.p3 = Math.floor(Math.random() * this.bp);
+		this.p2 = Math.floor(Math.random() * this.bp);
+		this.p1 = Math.floor(Math.random() * this.bp);
+		this.p0 = Math.floor(Math.random() * this.bp);
 	}
 
 	hash(x: number) {
@@ -48,6 +54,10 @@ class Predictor {
 		let hashed = this.hash(value);
 		this.counter += hashed;
 		return Math.pow(this.counter, 2);
+	}
+
+	clear() {
+		this.counter = 0;
 	}
 }
 
