@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<link rel="stylesheet" href="./main.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link href="./_app/immutable/assets/3.7BjLUh3J.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/PredictorCount.DyvVn9RV.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.BclggNYR.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/Dflo4nRX.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/hnRg4GeL.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/B-l8ibbC.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.B85B6uuc.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/DoJvZeW-.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/B-bCnNXR.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/DDekZsOI.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/CRW5mszk.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.ChPDxakn.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/3.DaevoOUE.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/DMBwJqAf.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents"><!--[--><!--[--><!----><!----><div class="layout svelte-1f04ob5"><div class="panel pl"><h2>Vergleich Platzkomplexität - F2 Algorithmus</h2> <div class="plot svelte-1f04ob5"><canvas></canvas></div> <div class="row svelte-1f04ob5"><label for="packets">Pakettypen</label> <input name="packets" type="range" min="1" max="1000000" step="1000" value="250000"><span>250000</span></div> <details class="panel"><summary>Schätzer Parameter</summary> <div class="params svelte-1f04ob5"><label for="data_bound">Bits Hashfunktion:</label> <input name="data_bound" type="range" min="1" max="64" value="32"><span>32</span></div> <br> <div class="panel"><div class="params svelte-13r7pny"><label for="data_bound">Delta</label> <input name="data_bound" type="range" min="0.001" max="0.1" step="0.001" value="0.01"><span>1.00%</span> <label for="data_bound">Korrektheit Wahrscheinlichkeit:</label> <input name="data_bound" type="range" min="0.5" max="0.99" step="0.01" value="0.95"><span>0.95</span></div> <div class="p"><span>Anzahl Schätzer: 1.00</span></div></div><!----></details></div></div><!----><!----><!----><!--]--> <!--[!--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_1eg93zs = {
+						base: new URL(".", location).pathname.slice(0, -1),
+						assets: "/streaming-alg-visualization"
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("./_app/immutable/entry/start.BclggNYR.js"),
+						import("./_app/immutable/entry/app.B85B6uuc.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 3],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
