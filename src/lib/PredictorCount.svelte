@@ -13,7 +13,7 @@
 	<div class="params">
 		<label for="data_bound">Delta</label>
 		<input name="data_bound" type="range" min="0.001" max="0.1" step="0.001" bind:value={expected_delta} /><span>{(expected_delta * 100).toFixed(2)}%</span>
-		<label for="data_bound">Korrektheit Wahrscheinlichkeit:</label>
+		<label for="data_bound">Wahrscheinlichkeit</label>
 		<input name="data_bound" type="range" min="0.5" max="0.99" step="0.01" bind:value={probability_correctness} /><span>{probability_correctness}</span>
 	</div>
 	<div class="p">

@@ -10,6 +10,8 @@ export async function getRandomPrime() : Promise<number> {
 	if(primes === null) {
 		primes = await fetchPrimes();
 	}
-	const randomIndex = Math.floor(Math.random() * primes.length);
-	return primes[randomIndex];
+	//primes.length
+	const randomIndex = Math.floor(Math.random() * 100000);
+	//return primes[randomIndex];
+	return 1325017;
 }

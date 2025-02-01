@@ -38,7 +38,9 @@ class Predictor {
 	}
 
 	async init() {
-		this.bp = await getRandomPrime();
+		//this.bp = await getRandomPrime();
+		//this.bp = 1325017;
+		this.bp = 1741;
 
 		this.p3 = Math.floor(Math.random() * this.bp);
 		this.p2 = Math.floor(Math.random() * this.bp);
@@ -57,6 +59,11 @@ class Predictor {
 	}
 
 	clear() {
+		this.p3 = Math.floor(Math.random() * this.bp);
+		this.p2 = Math.floor(Math.random() * this.bp);
+		this.p1 = Math.floor(Math.random() * this.bp);
+		this.p0 = Math.floor(Math.random() * this.bp);
+
 		this.counter = 0;
 	}
 }

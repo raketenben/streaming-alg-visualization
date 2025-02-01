@@ -41,7 +41,7 @@
 				datasets: [
 					{
 						label: 'Random Data',
-						data: []
+						data: [{ x: 0, y: 0 }]
 					}
 				]
 			},

@@ -68,7 +68,6 @@
 		$effect(updateData);
 	});
 </script>
-<div class="layout">
 	<div class="panel pl">
 		<h2>Vergleich Platzkomplexität - F2 Algorithmus</h2> 
 		<div class="plot">
@@ -76,20 +75,23 @@
 		</div>
 		
 		<div class="row">
-			<label for="packets">Pakettypen</label>
-			<input name="packets" type="range" min="1" max="1000000" step="1000" bind:value={data_bound} /><span>{data_bound}</span>
+			<label for="packets">Größe des Universums</label>
+			<input name="packets" type="range" min="0" max="1000000" step="1000" bind:value={data_bound} /><span>{data_bound}</span>
+		</div>
+		<div class="row">
+			<label for="packets">Anzahl Pakete</label>
+			<input name="packets" type="range" min="0" max="100000000" step="100000" bind:value={packets} /><span>{packets}</span>
 		</div>
 		<details class="panel">
 			<summary>Schätzer Parameter</summary>
 			<div class="params">
 				<label for="data_bound">Bits Hashfunktion:</label>
-				<input name="data_bound" type="range" min="1" max="64" bind:value={bits_hashfunction} /><span>{bits_hashfunction}</span>
+				<input name="data_bound" type="range" min="1" max="128" bind:value={bits_hashfunction} /><span>{bits_hashfunction}</span>
 			</div>
 			<br />
 			<PredictorCount bind:estimator_count />
 		</details>
 	</div>
-</div>
 <style>
 	.row {
 		padding: 1rem;
@@ -107,6 +109,11 @@
 		display: grid;
 		grid-template-columns: auto 1fr min-content;
 		grid-gap: 1rem;
+	}
+
+	.pl {
+		grid-column-start: 1;
+		grid-column-end: 4;
 	}
 
 	.plot {
