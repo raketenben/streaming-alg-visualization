@@ -155,7 +155,7 @@
 	<h2>{last_element}</h2>
 	<div class="row">
 		<label>Datenpunkte pro Sekunde:</label>
-		<input type="range" min="1" max="1000" bind:value={data_points_per_second} />
+		<input type="range" min="1" max="10000" bind:value={data_points_per_second} />
 		<span>{data_points_per_second}/s</span>
 	</div>
 	<div class="row">

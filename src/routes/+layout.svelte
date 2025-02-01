@@ -18,6 +18,7 @@
 		padding: 1rem;
 		height: 100dvh;
 		width: 100dvw;
+		overflow-x: hidden;
 	}
 
 	.menu {
